@@ -12,3 +12,156 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.flex-row{
+  display: flex;
+  flex-flow: row wrap;
+}
+.flex-row.-no-wrap{
+  flex-flow: row;
+}
+.flex-row.-justify-center{
+  justify-content: center;
+}
+.flex-row.-align-center{
+  align-items: center;
+}
+
+.text-blue{
+  color: #01aebc;
+}
+
+.card{
+  background: white;
+  border-radius: 3px;
+  border: solid 1px #E6E9EA;
+}
+
+.form-group-label{
+  color: #395159;
+  font-weight: bold;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+.card{
+  background: white;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.card.no-padding{
+  padding: 0;
+}
+.card.card-shadow{
+  box-shadow: 0 8px 61px 2px rgba(32,59,68,0.05), 0 3px 19px 2px rgba(32,59,68,0.04), 1px 1px 87px -2px rgba(32,59,68,0.05);
+}
+
+.PriceListContainer li label input{
+  margin-right: 13px;
+}
+
+.PriceListScreen{
+  padding: 40px 0;
+}
+
+.city-radio *{
+  cursor: pointer;
+}
+.city-radio input{
+  display: none;
+}
+.city-radio small{
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.city-radio.active small{
+  color: #00afac;
+  font-weight: bold;
+}
+.PriceListAccommodation header p {
+  color: #373a3c70;
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+}
+.PriceListAccommodation header small {
+  text-align: center;
+  display: block;
+}
+.PriceListForm .form-group{
+  margin-bottom: 15px;
+}
+.PriceListAccommodation .summary {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.PriceListAccommodation .summary > *{
+  width: 50%;
+  font-size: 12px;
+}
+
+svg circle{
+  transition: all 0.2s;
+}
+
+.accommodation-list li p{
+  font-size: 12px;
+}
+.accommodation-list li small{
+  display: block;
+}
+.PriceListAccommodation h3{
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.PriceListAccommodation h5{
+  margin-top: 30px;
+  font-weight : bold;
+  font-size : 12px;
+  text-transform : uppercase;
+  color : #52676E;
+}
+._no-margin{
+  margin: 0px !important;
+}
+.accommodation-list li{
+  padding: 4px 0;
+}
+.accommodation-list .icon{
+  margin-right: 7px;
+}
+.text-gray{
+  color: #839297;
+}
+.form-group-radio li {
+  margin-top: 10px;
+}
+.form-group-radio input{
+  margin-right: 5px;
+}
+.form-group-radio label{
+  margin-right: 10px;
+}
+.PriceListAccommodation .form-group-radio{
+  font-size: 12px;
+}
+.flex{
+  flex: 1;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+svg{
+  width: 100%;
+}
+
+
