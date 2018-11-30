@@ -30,26 +30,26 @@ const CITIES = [
 
 const CHECK_IN_OPTIONS = [
   {
-    label: 'No, I will collect the keys at SayStay\'s office on business hours',
+    label: 'No, I will collect the keys at SayStay\'s office on business hours (Monday to Friday, from 9am to 5pm) - applies to share house only',
     value: '1',
   },
   {
-    label: 'Yes, I want someone to pick me up at the airport and assist me with my check-in at my accommodation.',
+    label: 'Yes, I want someone waiting for me at my accommodation',
     value: '2',
   },
   {
-    label: 'Yes, I want someone waiting for me at my accommodation.',
+    label: 'Yes, I want someone to pick me up at the airport and assist me with my check-in at my accommodation',
     value: '3',
   },
 ];
 
 const CHECK_OUT_OPTIONS = [
   {
-    label: 'No, I will leave the keys at SayStay\'s office on business hours (Monday to Friday, from 9am to 5pm).',
+    label: 'No, I will leave the keys at SayStay\'s office on business hours (Monday to Friday, from 9am to 5pm) - applies to share house only',
     value: '1',
   },
   {
-    label: 'Yes, I want someone to pick me up and take me to the airport or to another accommodation.',
+    label: 'Yes, I want someone to pick me up and take me to the airport or to another accommodation',
     value: '2',
   },
 ];
@@ -137,7 +137,7 @@ class PriceListForm extends Component {
             <div className="form-group">
               <label className="form-group-label">How long are you staying?</label>
               <div className="flex-row -no-wrap -align-center">
-                <input min="1" max="30" onChange={this.onValueChange} type="number" name="numberOfWeeks" style={{ marginRight: '10px', maxWidth: '120px'}}/> <span>Weeks</span>
+                <input min="1" max="30" onChange={this.onValueChange} type="number" name="numberOfWeeks" style={{ marginRight: '10px', maxWidth: '120px'}}/> <span>Week(s)</span>
               </div>
             </div>
             <div className="form-group form-group-radio">

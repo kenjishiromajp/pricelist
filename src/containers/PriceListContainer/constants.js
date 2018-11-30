@@ -27,8 +27,16 @@ export const MEALPRICE = {
   [FULL_BOARD]: 70,
 };
 
-export const PRICE_CHECKIN = 60;
-export const PRICE_CHECKOUT = 60;
+export const PRICE_CHECKIN = 55;
+
+//TODO: PRICES_CHECKIN, cada opção tem um preço diferente:
+export const PRICES_CHECKIN = {
+  '1': 0,
+  '2': 55,
+  '3': 90,
+};
+
+export const PRICE_CHECKOUT = 90;
 
 export const HOMESTAY_PRICES = {
   [MELBOURNE]: 250,
@@ -47,7 +55,7 @@ export const SHAREHOUSE_PREMIUM_PRICES = {
 export const GENERAL_INFORMATION_ACCOMMODATION = [
   { 
     description: <p><span>POSSIBILITY TO EXTEND YOUR INITIAL STAY</span><small>Subject to availability</small></p>,
-    icon: 'icon-toilet',  
+    icon: 'icon-extend',  
   },
   { 
     description: <p>INSURANCE INCLUDED</p>,
@@ -58,11 +66,11 @@ export const GENERAL_INFORMATION_ACCOMMODATION = [
     icon: 'icon-bill',
   },
   { 
-    description: <p><span><strong>24 HOUR SUPPORT</strong> FOR URGENT MATTERS</span><small>For non-urgent matters, please e-mail our staff</small></p>,
+    description: <p><span><strong>24 HOUR</strong> SUPPORT</span><small>For urgent manners. For non-urgent matters, please e-mail our staff</small></p>,
     icon: 'icon-clock',
   },
   { 
-    description: <p><span><strong>SAYSTAY'S QUALITY CONTROL</strong></span><small>We inspect our homestays to ensure they met our comfort and safety standards!</small></p>,
+    description: <p><span><strong>SAYSTAY'S QUALITY CONTROL</strong></span><small>We regularly inspect your accommodation to ensure it meets our cleaning, organization and safety standards!</small></p>,
     icon: 'icon-checked',
   },  
 ];
@@ -81,27 +89,7 @@ const COMMON_DESCRIPTION = [
     icon: 'icon-furniture',
   },
   { 
-    description: <p>EQUIPED KITCHEN</p>,
-    icon: 'icon-kitchen',
-  },
-  { 
-    description: <p><span>WASHING MACHINE</span> <small>The use will be according to the homestay house rules</small></p>,
-    icon: 'icon-washmachine',
-  },
-  { 
-    description: <p><span>SWIMMING POOL*</span><small>* Available in selected homestays</small></p>,
-    icon: 'icon-pool',
-  },
-  { 
-    description: <p><span>GYM*</span><small>* Available in selected homestays</small></p>,
-    icon: 'icon-gym',
-  },
-  { 
-    description: <p><span>OUTDOOR AREA*</span><small>* Available in selected homestays</small></p>,
-    icon: 'icon-outdoor',
-  },
-  { 
-    description: <p>PILLOW,BED LINEN AND BATH TOWEL</p>,
+    description: <p>PILLOW, BED LINEN AND BATH TOWEL</p>,
     icon: 'icon-pillow',
   },
 ];
@@ -115,15 +103,37 @@ export const HOMESTAY_ACCOMMODATION_ITEMS = [
     icon: 'icon-toilet',
   },
   { 
-    description: <p><span>UP TO <strong>45 MINUTES</strong> RIDE TO THE CITY</span><small>(by public transportation)</small></p>,
+    description: <p><span>UP TO <strong>45 MINUTES</strong> RIDE TO THE CITY</span><small>By public transportation</small></p>,
     icon: 'icon-clock',
+  },
+  { 
+    description: <p>
+      <span>EQUIPPED KITCHEN</span>
+    </p>,
+    icon: 'icon-kitchen',
+  },
+  { 
+    description: <p><span>WASHING MACHINE</span> <small>The use will be according to the homestay house rules</small></p>,
+    icon: 'icon-washmachine',
+  },
+  { 
+    description: <p><span>SWIMMING POOL</span><small>Available in selected homestays</small></p>,
+    icon: 'icon-pool',
+  },
+  { 
+    description: <p><span>GYM</span><small>Available in selected homestays</small></p>,
+    icon: 'icon-gym',
+  },
+  { 
+    description: <p><span>OUTDOOR AREA</span><small>Available in selected homestays</small></p>,
+    icon: 'icon-outdoor',
   },
   ...COMMON_DESCRIPTION,
 ];
 
 export const SHAREHOUSE_STANDARD_ITEMS = [
   { 
-    description: <p><span>2 BEDROOM</span><small>Up to 4 people sharing the apartment </small></p>,
+    description: <p><span>2 BEDROOM APARTMENT</span><small>Up to 4 people sharing the apartment </small></p>,
     icon: 'icon-bedroom',
   },
   { 
@@ -131,32 +141,78 @@ export const SHAREHOUSE_STANDARD_ITEMS = [
     icon: 'icon-people',
   },
   { 
-    description: <p> <span>2 BATHROOM</span> <small>Ensuite is subject to availability</small></p>,
+    description: <p> <span>2 BATHROOM APARTMENT</span> <small>En-suite is subject to availability</small></p>,
     icon: 'icon-toilet',
   },
   { 
     description: <p><span>UP TO <strong>15 MINUTES</strong> WALK TO THE CITY</span></p>,
     icon: 'icon-clock',
   },
+  { 
+    description: <p>
+      <span>EQUIPPED KITCHEN</span>
+      <small>We provide: microwave, toaster, electric kettle, plates, glasses, cutlery, pans</small>
+    </p>,
+    icon: 'icon-kitchen',
+  },
+  { 
+    description: <p><span>WASHING MACHINE</span></p>,
+    icon: 'icon-washmachine',
+  },
+  { 
+    description: <p><span>SWIMMING POOL</span><small>On common areas</small></p>,
+    icon: 'icon-pool',
+  },
+  { 
+    description: <p><span>GYM</span><small>On common areas</small></p>,
+    icon: 'icon-gym',
+  },
+  { 
+    description: <p><span>OUTDOOR AREA</span><small>On common areas</small></p>,
+    icon: 'icon-outdoor',
+  },
   ...COMMON_DESCRIPTION,
 ];
 
 export const SHAREHOUSE_PREMIUM_ITEMS = [
   { 
-    description: <p><span>2 OR 3 BEDROOM</span><small>Up to 6 people sharing the apartment </small></p>,
-    icon: 'icon-bath',
+    description: <p><span>2 OR 3 BEDROOM APARTMENT</span><small>Up to 6 people sharing the apartment </small></p>,
+    icon: 'icon-bedroom',
   },
   { 
     description: <p>SHARE ROOM (2 PEOPLE)</p>,
-    icon: 'icon-bath',
+    icon: 'icon-people',
   },
   { 
-    description: <p> <span>2 BATHROOM</span> <small>Ensuite is subject to availability</small></p>,
-    icon: 'icon-bath',
+    description: <p> <span>2 BATHROOM APARTMENT</span> <small>En-suite is subject to availability</small></p>,
+    icon: 'icon-toilet',
   },
   { 
     description: <p><span>UP TO <strong>15 MINUTES</strong> WALK TO THE CITY</span></p>,
-    icon: 'icon-bath',
+    icon: 'icon-clock',
+  },
+  { 
+    description: <p>
+      <span>EQUIPPED KITCHEN</span>
+      <small>We provide: microwave, toaster, electric kettle, plates, glasses, cutlery, pans</small>
+    </p>,
+    icon: 'icon-kitchen',
+  },
+  { 
+    description: <p><span>WASHING MACHINE</span></p>,
+    icon: 'icon-washmachine',
+  },
+  { 
+    description: <p><span>SWIMMING POOL</span><small>On common areas</small></p>,
+    icon: 'icon-pool',
+  },
+  { 
+    description: <p><span>GYM</span><small>On common areas</small></p>,
+    icon: 'icon-gym',
+  },
+  { 
+    description: <p><span>OUTDOOR AREA</span><small>On common areas</small></p>,
+    icon: 'icon-outdoor',
   },
   ...COMMON_DESCRIPTION,
 ];

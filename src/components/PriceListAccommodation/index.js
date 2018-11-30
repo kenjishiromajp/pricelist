@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SAYSTAY_TAX, PRICE_CHECKIN, PRICE_CHECKOUT, GENERAL_INFORMATION_ACCOMMODATION, HALF_BOARD, FULL_BOARD, MEALPRICE } from '../../containers/PriceListContainer/constants';
+import { SAYSTAY_TAX, PRICE_CHECKIN, PRICE_CHECKOUT, PRICES_CHECKIN, GENERAL_INFORMATION_ACCOMMODATION, HALF_BOARD, FULL_BOARD, MEALPRICE } from '../../containers/PriceListContainer/constants';
 
 class PriceListAccommodation extends Component {
   state = {
@@ -30,10 +30,10 @@ class PriceListAccommodation extends Component {
     let total = (numberOfWeeks * this.props.price) + SAYSTAY_TAX;
     switch(checkIn){
       case '2':
-        total += PRICE_CHECKIN;
+        total += PRICES_CHECKIN['2'];
         break;
       case '3':
-        total += PRICE_CHECKIN;
+        total += PRICES_CHECKIN['3'];
         break;
       default:
         break;
@@ -55,7 +55,7 @@ class PriceListAccommodation extends Component {
       default:
         break;
     }
-    return `$ ${total.toFixed(2)}`;
+    return `$${total.toFixed(2)}`;
   }
   onValueChange = ({target:{value: mealOption}}) => {
     this.setState({
@@ -66,18 +66,18 @@ class PriceListAccommodation extends Component {
     const { checkIn, checkOut, numberOfWeeks } = this.props;
     const price = this.getPricePerWeek();
     let summary = [
-      <li> + ${price} x {numberOfWeeks}weeks</li>,
+      <li> + ${price} x {numberOfWeeks} weeks</li>,
     ];
     switch(checkIn){
       case '2':
         summary = [
-          <li> + ${PRICE_CHECKIN} <span className="text-gray">CheckIn Fee</span></li>,
+          <li> + ${PRICES_CHECKIN['2']} <span className="text-gray">CheckIn Fee</span></li>,
           ...summary,
         ]
         break;
       case '3':
         summary = [
-          <li> + s${PRICE_CHECKIN} <span className="text-gray">CheckIn Fee</span></li>,
+          <li> + ${PRICES_CHECKIN['3']} <span className="text-gray">CheckIn Fee</span></li>,
           ...summary,
         ]
         break;
@@ -97,13 +97,13 @@ class PriceListAccommodation extends Component {
     switch(this.state.mealOption){
       case '2':
         summary = [
-          <li> + ${HALF_BOARD} <span className="text-gray">MEAL OPTION</span></li>,
+          <li> + ${MEALPRICE[HALF_BOARD]} <span className="text-gray">Meal fee</span></li>,
           ...summary,
         ]
         break;
       case '3':
         summary = [
-          <li> + ${FULL_BOARD} <span className="text-gray">MEAL OPTION</span></li>,
+          <li> + ${MEALPRICE[FULL_BOARD]} <span className="text-gray">Meal fee</span></li>,
           ...summary,
         ]
         break;
@@ -116,18 +116,27 @@ class PriceListAccommodation extends Component {
     return this.props.mealOption && (
       <div className="form-group form-group-radio">
         <label className="form-group-label">MEALS OPTIONS</label>
-        <div className="flex-row">
-          <label>
+        <div>
+          <label className="flex-row -align-center -no-wrap">
             <input checked={this.state.mealOption === '1'} onChange={this.onValueChange} type="radio" value="1" />
-            <span>NO MEALS</span>
+            <div>
+              <div><span>NO MEALS</span></div>
+              <small>Homestay will not provide the meals but student is allowed to use the kitchen to cook</small>
+            </div>
           </label>
-          <label>
+          <label className="flex-row -align-center -no-wrap">
             <input checked={this.state.mealOption === '2'} onChange={this.onValueChange} type="radio" value="2"/>
-            <span>HALF BOARD</span>
+            <div>
+              <div><span>HALF BOARD</span></div>
+              <small>Homestay will provide: Breakfast &amp; Dinner on week days. Breakfast, lunch &amp; dinner on weekends.</small>
+            </div>
           </label>
-          <label>
+          <label className="flex-row -align-center -no-wrap">
             <input checked={this.state.mealOption === '3'} onChange={this.onValueChange} type="radio" value="3"/>
-            <span>FULL BOARD</span>
+            <div>
+              <div><span>FULL BOARD</span></div>
+              <small>Homestay will provide breakfast, lunch &amp; dinner 7 days a week.</small>
+            </div>
           </label>
         </div>
       </div>
