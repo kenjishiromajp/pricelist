@@ -183,14 +183,16 @@ class PriceListAccommodation extends Component {
           { subtitle && <small className="text-center">{subtitle}</small> }
           <p>{ description }</p>
         </header>
-        <ul className="summary">
-          {this.renderSummary()}
-        </ul>
-        <h3 className="text-center" style={{color}}>{ this.getTotal() }</h3>
-        { this.renderMealOptions() }
-        <div className="description">
-          { this.renderDescription() }
-          { this.renderGeneralDescription() }
+        <div className="PriceListAccommodation-body">
+          <ul className="summary">
+            {this.renderSummary()}
+          </ul>
+          <h3 className="text-center" style={{color}}>{ this.getTotal() }</h3>
+          { this.renderMealOptions() }
+          <div className="description">
+            { this.renderDescription() }
+            { this.renderGeneralDescription() }
+          </div>
         </div>
       </div>
     );

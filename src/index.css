@@ -83,6 +83,20 @@ ul{
   color: #00afac;
   font-weight: bold;
 }
+
+@keyframes showUp{
+  0%{
+    transform: scale(0);
+  }
+  50%{
+    transform: scale(1);
+  }
+}
+
+.PriceListAccommodation {
+  animation: showUp 1s ease;
+}
+
 .PriceListAccommodation header p {
   color: #373a3c70;
   font-size: 12px;
