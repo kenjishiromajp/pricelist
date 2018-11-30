@@ -178,4 +178,43 @@ svg{
   width: 100%;
 }
 
+.btn-block{
+  display: block;
+  width: 100%;
+}
+
+.PriceListAccommodation .btn{
+  background: none;
+  color: black;
+}
+
+@media (min-width: 500px) {
+  .hidden-sm-up{
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .PriceListAccommodation .PriceListAccommodation-body{
+    max-height: 300px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  .PriceListAccommodation.-opened .PriceListAccommodation-body{
+    max-height: 1700px;
+  }
+  .PriceListAccommodation.-opened .PriceListAccommodation-body::after{
+    opacity: 0;
+  }
+  .PriceListAccommodation .PriceListAccommodation-body::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
+  }
+}
 

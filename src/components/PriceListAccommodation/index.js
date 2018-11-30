@@ -4,6 +4,7 @@ import { SAYSTAY_TAX, PRICE_CHECKIN, PRICE_CHECKOUT, PRICES_CHECKIN, GENERAL_INF
 class PriceListAccommodation extends Component {
   state = {
     mealOption: '1',
+    opened: false,
   }
   static defaultProps = {
     subtitle: '',
@@ -56,6 +57,11 @@ class PriceListAccommodation extends Component {
         break;
     }
     return `$${total.toFixed(2)}`;
+  }
+  togglePricelist = () => {
+    this.setState({
+      opened: !this.state.opened,
+    });
   }
   onValueChange = ({target:{value: mealOption}}) => {
     this.setState({
@@ -171,8 +177,9 @@ class PriceListAccommodation extends Component {
   }
   render() {
     const { title, subtitle, description, icon:IconComponent, color } = this.props;
+    const { opened } = this.state;
     return (
-      <div className="PriceListAccommodation card card-shadow" style={{ marginTop: '120px'}}>
+      <div className={`PriceListAccommodation card card-shadow ${opened && '-opened'}`}  style={{ marginTop: '120px'}}>
         <header>
           {IconComponent && (
             <div style={{ marginTop: '-130px', paddingLeft: '40px', paddingRight: '40px'}}>
@@ -194,6 +201,7 @@ class PriceListAccommodation extends Component {
             { this.renderGeneralDescription() }
           </div>
         </div>
+        <button onClick={this.togglePricelist} className="hidden-sm-up btn btn-block">Show {opened? 'Less': 'More'}</button>
       </div>
     );
   }
