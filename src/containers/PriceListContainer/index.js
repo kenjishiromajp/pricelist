@@ -36,7 +36,10 @@ class PriceListContainer extends Component {
       return [{ ...HOMESTAY_PROPS, price: HOMESTAY_PRICES[priceListForm.city] + UNDERAGE_TAX, ...priceListForm, checkIn: '3', checkOut: '2' }];
     }
     if(this.state.priceListForm.city === MELBOURNE || this.state.priceListForm.city === SYDNEY){
-      return [{ ...HOMESTAY_PROPS, price: HOMESTAY_PRICES[priceListForm.city] + UNDERAGE_TAX, ...priceListForm }];
+      if(this.isUnderAge()){
+        return [{ ...HOMESTAY_PROPS, price: HOMESTAY_PRICES[priceListForm.city] + UNDERAGE_TAX, ...priceListForm }];
+      }
+      return [{ ...HOMESTAY_PROPS, price: HOMESTAY_PRICES[priceListForm.city], ...priceListForm }];
     }
     if(this.state.priceListForm.city === GOLDCOAST){
       return [
