@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SAYSTAY_TAX, PRICE_CHECKIN, PRICE_CHECKOUT, PRICES_CHECKIN, GENERAL_INFORMATION_ACCOMMODATION, HALF_BOARD, FULL_BOARD, MEALPRICE } from '../../containers/PriceListContainer/constants';
+import { SAYSTAY_TAX, PRICE_CHECKOUT, PRICES_CHECKIN, GENERAL_INFORMATION_ACCOMMODATION, HALF_BOARD, FULL_BOARD, MEALPRICE } from '../../containers/PriceListContainer/constants';
 
 class PriceListAccommodation extends Component {
   state = {
@@ -37,7 +37,7 @@ class PriceListAccommodation extends Component {
     return total/numberOfWeeks;
   }
   getTotal = () => {
-    const { checkIn, checkOut } = this.props;
+    const { checkIn, checkOut, city } = this.props;
     let { price } = this.props;
     const numberOfWeeks = parseInt(this.props.numberOfWeeks);
     switch(this.state.mealOption){
@@ -53,17 +53,17 @@ class PriceListAccommodation extends Component {
     let total = (numberOfWeeks * price) + SAYSTAY_TAX;
     switch(checkIn){
       case '2':
-        total += PRICES_CHECKIN['2'];
+        total += PRICES_CHECKIN[city]['2'];
         break;
       case '3':
-        total += PRICES_CHECKIN['3'];
+        total += PRICES_CHECKIN[city]['3'];
         break;
       default:
         break;
     }
     switch(checkOut){
       case '2':
-        total += PRICE_CHECKOUT;
+        total += PRICE_CHECKOUT[city];
         break;
       default:
         break;
@@ -81,7 +81,7 @@ class PriceListAccommodation extends Component {
     })
   }
   renderSummary = () => {
-    const { checkIn, checkOut, numberOfWeeks } = this.props;
+    const { checkIn, checkOut, numberOfWeeks, city } = this.props;
     const price = this.getPricePerWeek();
     let summary = [
       <li> + ${price} x {numberOfWeeks} weeks</li>,
@@ -89,13 +89,13 @@ class PriceListAccommodation extends Component {
     switch(checkIn){
       case '2':
         summary = [
-          <li> + ${PRICES_CHECKIN['2']} <span className="text-gray">CheckIn Fee</span></li>,
+          <li> + ${PRICES_CHECKIN[city]['2']} <span className="text-gray">CheckIn Fee</span></li>,
           ...summary,
         ]
         break;
       case '3':
         summary = [
-          <li> + ${PRICES_CHECKIN['3']} <span className="text-gray">CheckIn Fee</span></li>,
+          <li> + ${PRICES_CHECKIN[city]['3']} <span className="text-gray">CheckIn Fee</span></li>,
           ...summary,
         ]
         break;
@@ -105,7 +105,7 @@ class PriceListAccommodation extends Component {
     switch(checkOut){
       case '2':
         summary = [
-          <li> + ${PRICE_CHECKOUT} <span className="text-gray">Checkout Fee</span></li>,
+          <li> + ${PRICE_CHECKOUT[city]} <span className="text-gray">Checkout Fee</span></li>,
           ...summary,
         ]
         break;

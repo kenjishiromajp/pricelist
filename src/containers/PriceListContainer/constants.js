@@ -31,12 +31,34 @@ export const PRICE_CHECKIN = 55;
 
 //TODO: PRICES_CHECKIN, cada opção tem um preço diferente:
 export const PRICES_CHECKIN = {
-  '1': 0,
-  '2': 55,
-  '3': 130,
+  [GOLDCOAST] : {
+    '1': 0,
+    '2': 55,
+    '3': 90,
+  },
+  [SYDNEY] : {
+    '1': 0,
+    '2': 55,
+    '3': 130,
+  },
+  [MELBOURNE] : {
+    '1': 0,
+    '2': 55,
+    '3': 130,
+  },
+  [BRISBANE] : {
+    '1': 0,
+    '2': 55,
+    '3': 90,
+  },
 };
 
-export const PRICE_CHECKOUT = 130;
+export const PRICE_CHECKOUT = {
+  [GOLDCOAST] : 90,
+  [SYDNEY] : 130,
+  [MELBOURNE] : 130,
+  [BRISBANE] : 90,
+};
 
 export const HOMESTAY_PRICES = {
   [MELBOURNE]: 250,
