@@ -33,10 +33,10 @@ export const PRICE_CHECKIN = 55;
 export const PRICES_CHECKIN = {
   '1': 0,
   '2': 55,
-  '3': 90,
+  '3': 130,
 };
 
-export const PRICE_CHECKOUT = 90;
+export const PRICE_CHECKOUT = 130;
 
 export const HOMESTAY_PRICES = {
   [MELBOURNE]: 250,

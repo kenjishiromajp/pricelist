@@ -22,13 +22,35 @@ class PriceListAccommodation extends Component {
   }
   getPricePerWeek = () => {
     const numberOfWeeks = parseInt(this.props.numberOfWeeks);
-    const total = (numberOfWeeks * this.props.price) + SAYSTAY_TAX;
-    return (total/numberOfWeeks).toFixed(2);
+    let { price } = this.props;
+    switch(this.state.mealOption){
+      case '2':
+        price += MEALPRICE[HALF_BOARD];
+        break;
+      case '3':
+        price += MEALPRICE[FULL_BOARD];
+        break;
+      default:
+        break;
+    }
+    const total = (numberOfWeeks * price) + SAYSTAY_TAX;
+    return total/numberOfWeeks;
   }
   getTotal = () => {
     const { checkIn, checkOut } = this.props;
+    let { price } = this.props;
     const numberOfWeeks = parseInt(this.props.numberOfWeeks);
-    let total = (numberOfWeeks * this.props.price) + SAYSTAY_TAX;
+    switch(this.state.mealOption){
+      case '2':
+      price += MEALPRICE[HALF_BOARD];
+      break;
+      case '3':
+      price += MEALPRICE[FULL_BOARD];
+      break;
+      default:
+      break;
+    }
+    let total = (numberOfWeeks * price) + SAYSTAY_TAX;
     switch(checkIn){
       case '2':
         total += PRICES_CHECKIN['2'];
@@ -42,16 +64,6 @@ class PriceListAccommodation extends Component {
     switch(checkOut){
       case '2':
         total += PRICE_CHECKOUT;
-        break;
-      default:
-        break;
-    }
-    switch(this.state.mealOption){
-      case '2':
-        total += MEALPRICE[HALF_BOARD];
-        break;
-      case '3':
-        total += MEALPRICE[FULL_BOARD];
         break;
       default:
         break;
@@ -94,22 +106,6 @@ class PriceListAccommodation extends Component {
       case '2':
         summary = [
           <li> + ${PRICE_CHECKOUT} <span className="text-gray">Checkout Fee</span></li>,
-          ...summary,
-        ]
-        break;
-      default:
-        break;
-    }
-    switch(this.state.mealOption){
-      case '2':
-        summary = [
-          <li> + ${MEALPRICE[HALF_BOARD]} <span className="text-gray">Meal fee</span></li>,
-          ...summary,
-        ]
-        break;
-      case '3':
-        summary = [
-          <li> + ${MEALPRICE[FULL_BOARD]} <span className="text-gray">Meal fee</span></li>,
           ...summary,
         ]
         break;
