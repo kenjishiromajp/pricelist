@@ -1,13 +1,13 @@
 {
   "main.css": "/pricelist/static/css/main.9052b224.chunk.css",
-  "main.js": "/pricelist/static/js/main.b461e1c6.chunk.js",
-  "main.js.map": "/pricelist/static/js/main.b461e1c6.chunk.js.map",
+  "main.js": "/pricelist/static/js/main.019de7fe.chunk.js",
+  "main.js.map": "/pricelist/static/js/main.019de7fe.chunk.js.map",
   "static/js/1.82072d35.chunk.js": "/pricelist/static/js/1.82072d35.chunk.js",
   "static/js/1.82072d35.chunk.js.map": "/pricelist/static/js/1.82072d35.chunk.js.map",
   "runtime~main.js": "/pricelist/static/js/runtime~main.00fd058d.js",
   "runtime~main.js.map": "/pricelist/static/js/runtime~main.00fd058d.js.map",
   "static/css/main.9052b224.chunk.css.map": "/pricelist/static/css/main.9052b224.chunk.css.map",
   "index.html": "/pricelist/index.html",
-  "precache-manifest.adc3c125effd294db2f029b940d1b2e8.js": "/pricelist/precache-manifest.adc3c125effd294db2f029b940d1b2e8.js",
+  "precache-manifest.73f4e14c2850ca362ce7d4f3be5c6a82.js": "/pricelist/precache-manifest.73f4e14c2850ca362ce7d4f3be5c6a82.js",
   "service-worker.js": "/pricelist/service-worker.js"
 }
