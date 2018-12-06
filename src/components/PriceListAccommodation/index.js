@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SAYSTAY_TAX, PRICE_CHECKOUT, PRICES_CHECKIN, GENERAL_INFORMATION_ACCOMMODATION, HALF_BOARD, FULL_BOARD, MEALPRICE } from '../../containers/PriceListContainer/constants';
+import { HOMESTAY, SAYSTAY_TAX, PRICE_CHECKOUT, PRICES_CHECKIN, GENERAL_INFORMATION_ACCOMMODATION, HALF_BOARD, FULL_BOARD, MEALPRICE } from '../../containers/PriceListContainer/constants';
 
 class PriceListAccommodation extends Component {
   state = {
@@ -7,6 +7,7 @@ class PriceListAccommodation extends Component {
     opened: false,
   }
   static defaultProps = {
+    id: '',
     subtitle: '',
     title: '',
     city: '',
@@ -38,7 +39,7 @@ class PriceListAccommodation extends Component {
   }
   getTotal = () => {
     const { checkIn, checkOut, city } = this.props;
-    let { price } = this.props;
+    let { price, id } = this.props;
     const numberOfWeeks = parseInt(this.props.numberOfWeeks);
     switch(this.state.mealOption){
       case '2':
@@ -53,7 +54,9 @@ class PriceListAccommodation extends Component {
     let total = (numberOfWeeks * price) + SAYSTAY_TAX;
     switch(checkIn){
       case '2':
-        total += PRICES_CHECKIN[city]['2'];
+        if(id !== HOMESTAY){
+          total += PRICES_CHECKIN[city]['2'];
+        }
         break;
       case '3':
         total += PRICES_CHECKIN[city]['3'];
@@ -81,17 +84,19 @@ class PriceListAccommodation extends Component {
     })
   }
   renderSummary = () => {
-    const { checkIn, checkOut, numberOfWeeks, city } = this.props;
+    const { id, checkIn, checkOut, numberOfWeeks, city } = this.props;
     const price = this.getPricePerWeek();
     let summary = [
-      <li> + ${price} x {numberOfWeeks} weeks</li>,
+      <li> + ${price.toFixed(2)} x {numberOfWeeks} weeks</li>,
     ];
     switch(checkIn){
       case '2':
-        summary = [
-          <li> + ${PRICES_CHECKIN[city]['2']} <span className="text-gray">CheckIn Fee</span></li>,
-          ...summary,
-        ]
+        if(id !== HOMESTAY){
+          summary = [
+            <li> + ${PRICES_CHECKIN[city]['2']} <span className="text-gray">CheckIn Fee</span></li>,
+            ...summary,
+          ]
+        }
         break;
       case '3':
         summary = [

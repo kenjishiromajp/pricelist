@@ -240,6 +240,7 @@ export const SHAREHOUSE_PREMIUM_ITEMS = [
 ];
 
 export const HOMESTAY_PROPS = {
+  id: HOMESTAY,
   title: 'HOMESTAY',
   subtitle: '',
   mealOption: true,
@@ -249,6 +250,7 @@ export const HOMESTAY_PROPS = {
   color: '#00AEBB',
 };
 export const SHARE_HOUSE_STANDARD_PROPS = {
+  id: SHARE_HOUSE_STANDARD,
   title: 'Share House',
   subtitle: 'Standard',
   mealOption: false,
@@ -258,11 +260,12 @@ export const SHARE_HOUSE_STANDARD_PROPS = {
   color: '#75BE36',
 };
 export const SHARE_HOUSE_PREMIUM_PROPS = {
+  id: SHARE_HOUSE_PREMIUM,
   title: 'Share House',
   subtitle: 'Premium',
   mealOption: false,
   icon: ShareHousePremiumIcon,
-  description: 'Enjoy the experience of sharing a house with other international travellers during your stay in Australia!',
+  description: 'Enjoy the experience of sharing a HIGH QUALITY MODERN APARTMENT with international travellers in Australia!',
   accommodationItems: SHAREHOUSE_PREMIUM_ITEMS,
   color: '#FFCC97',
 };
